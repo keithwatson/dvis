@@ -1,0 +1,13 @@
+.errorMessage {
+	position:relative;
+	padding:15px;
+	margin:1em 0 3em;
+	color:#000;
+	background:#f3961c;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	background:-webkit-gradient(linear, left top, left bottom, from(#f9d835), to(#f3961c));
+	background:-moz-linear-gradient(top, #f9d835, #f3961c);
+	background:-o-linear-gradient(top, #f9d835, #f3961c);
+}
