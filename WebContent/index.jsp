@@ -9,7 +9,7 @@
 	</header>
 
 	<section class="main">
-		<p>Welcome, bitches.</p>
+		<p>Welcome, beaches.</p>
 		<p>Please upload your CSV file:</p>
 
 		<form class="fileUploadForm" action="fileUpload" enctype="multipart/form-data" method="post">
