@@ -22,6 +22,8 @@ public class CsvParser {
 	}
 
 
+	/* Arse */
+	
 	public static void debug(List<String[]> rows) {
 
 		for (String[] row : rows) {
