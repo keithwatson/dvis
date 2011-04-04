@@ -7,6 +7,8 @@ import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
 
+/** Uses a third party CSV parser to turn a CSV file into a list of string arrays for processing */
+
 public class CsvParser {
 
 	public static List<String[]> parse(String fileName) throws FileNotFoundException, IOException {
