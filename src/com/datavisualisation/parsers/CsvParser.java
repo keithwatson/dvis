@@ -7,7 +7,10 @@ import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
 
-/** Uses a third party CSV parser to turn a CSV file into a list of string arrays for processing */
+/** Uses a third party CSV parser to turn a CSV file into a list of string arrays for processing.
+ * 
+ *  Wrapped to provide an interface that just takes Strings. Basic nice strings. Not complicated Reader-derived classes. You'd think
+ *  if you were giving an interface it would take a Reader and not a StringReader anyway. */
 
 public class CsvParser {
 
