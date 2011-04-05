@@ -1,5 +1,6 @@
 package com.datavisualisation.fileupload;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +27,9 @@ public class FileUploadServlet extends HttpServlet {
 	}
 
 
+	/** Reads the CSV file into a byte array, converts that into a String and then passes it to the CSV parser for parsing.
+	 *  Now avoids temporary files so that it works multi-platform. */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		for (Part part : request.getParts()) {
@@ -36,31 +40,14 @@ public class FileUploadServlet extends HttpServlet {
 			byte[] byteArray = new byte[bytesAvailable];
 
 			inputStream.read(byteArray);
-
-			String fileName = getFileName(part);
-			String outputFileName = "/tmp" + fileName;
-
-			FileOutputStream outputStream = new FileOutputStream(outputFileName);
-			outputStream.write(byteArray);
+			String contents = new String(byteArray);
 			inputStream.close();
 
-			CsvParser.parse(outputFileName);
+			CsvParser.parse(contents);
 
 		}
 
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
-
-	}
-
-
-	private String getFileName(Part part) {
-		part.getHeader("content-disposition");
-		for (String contentDisposition : part.getHeader("content-disposition").split(";")) {
-			if (contentDisposition.trim().startsWith("filename")) {
-				return contentDisposition.substring(contentDisposition.indexOf('=') + 1).trim().replace("\"", "");
-			}
-		}
-		return null;
 
 	}
 
