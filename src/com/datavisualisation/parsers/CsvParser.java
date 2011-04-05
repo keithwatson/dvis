@@ -22,7 +22,7 @@ public class CsvParser {
 	}
 
 
-	/* Arse feck girls */
+	/* Arse feck */
 	
 	public static void debug(List<String[]> rows) {
 
