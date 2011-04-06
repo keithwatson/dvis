@@ -21,15 +21,14 @@ import com.datavisualisation.Server;
 public class BarChart {
 
 	public String generateChartJavascript(String[] labels, String[] data) {
-
-		System.out.println(System.getProperty("server.root"));
 		
 		VelocityEngine engine = new VelocityEngine();
-		engine.setProperty("resource.loader", "file");
+		engine.setProperty("file.resource.loader.path", Server.getTemplatesDirectory());
 		engine.init();
 		VelocityContext context = new VelocityContext();
+		context.put("test", "test");
 
-		Template template = engine.getTemplate(Server.getTemplatesDirectory() + "barchart.vm");
+		Template template = engine.getTemplate("barchart.vm");
 
 		StringWriter writer = new StringWriter();
 
@@ -37,6 +36,7 @@ public class BarChart {
 
 		String output = "";
 		writer.write(output);
+		writer.flush();
 		
 		System.out.println(output);
 		
