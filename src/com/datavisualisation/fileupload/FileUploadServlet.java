@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import com.datavisualisation.Server;
 import com.datavisualisation.parsers.CsvParser;
 import com.datavisualisation.protovis.BarChart;
 
@@ -31,6 +32,8 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		Server.setServerRoot(this.getServletContext().getRealPath("/"));
+
 		for (Part part : request.getParts()) {
 
 			InputStream inputStream = request.getPart(part.getName()).getInputStream();
@@ -43,9 +46,9 @@ public class FileUploadServlet extends HttpServlet {
 			inputStream.close();
 
 			CsvParser.parse(contents);
-			
-//			BarChart barChart = new BarChart();
-//			barChart.generateChartJavascript(null, null);
+
+			BarChart barChart = new BarChart();
+			barChart.generateChartJavascript(null, null);
 
 		}
 
