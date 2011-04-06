@@ -1,7 +1,5 @@
 package com.datavisualisation.fileupload;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -14,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.datavisualisation.parsers.CsvParser;
+import com.datavisualisation.protovis.BarChart;
 
 @WebServlet(urlPatterns = "/fileUpload")
 @MultipartConfig
@@ -44,6 +43,9 @@ public class FileUploadServlet extends HttpServlet {
 			inputStream.close();
 
 			CsvParser.parse(contents);
+			
+//			BarChart barChart = new BarChart();
+//			barChart.generateChartJavascript(null, null);
 
 		}
 
