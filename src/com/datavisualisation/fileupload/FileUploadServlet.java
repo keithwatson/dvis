@@ -31,6 +31,8 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String script = "";
+
 		for (Part part : request.getParts()) {
 
 			InputStream inputStream = request.getPart(part.getName()).getInputStream();
@@ -45,11 +47,12 @@ public class FileUploadServlet extends HttpServlet {
 			CsvParser.parse(contents);
 
 			BarChart barChart = new BarChart();
-			barChart.generateChartJavascript(null, null);
+			script = barChart.generateChartJavascript(null, null);
 
 		}
 
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		request.setAttribute("script", script);
+		request.getRequestDispatcher("/pages/barchart.jsp").forward(request, response);
 
 	}
 

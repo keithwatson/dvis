@@ -29,7 +29,7 @@ public class BarChart {
 		VelocityContext context = new VelocityContext();
 		context.put("test", "test");
 
-		Template template = engine.getTemplate("barchart.vm");
+		Template template = engine.getTemplate("barchart.js");
 		StringWriter writer = new StringWriter();
 		template.merge(context, writer);
 
