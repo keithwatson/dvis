@@ -9,8 +9,10 @@
 	</header>
 
 	<section class="main">
-		<p>Welcome, beaches.</p>
-		<p>Please upload your CSV file:</p>
+		<p>Welcome.</p>
+		<p>Please upload your CSV file, in the following format</p>
+
+		<img class="image" src="images/barchart.png"></img>
 
 		<form class="fileUploadForm" action="fileUpload" enctype="multipart/form-data" method="post">
 			<input type="file" name="uploadFile" /> <input type="submit" class="white button" value="Upload File"/>

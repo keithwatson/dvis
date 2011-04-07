@@ -1,9 +1,9 @@
-var data = [1, 2, 3, 4];
+$data
 
 /* Sizing and scales. */
 var w = 800,
     h = 500,
-    x = pv.Scale.linear(0, 1.1).range(0, w),
+    x = pv.Scale.linear(0, 10).range(0, w),
     y = pv.Scale.ordinal(pv.range(10)).splitBanded(0, h, 4/5);
 
 /* The root panel. */

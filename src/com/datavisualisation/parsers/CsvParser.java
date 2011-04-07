@@ -18,7 +18,7 @@ public class CsvParser {
 
 		CSVReader reader = new CSVReader(new StringReader(contents));
 		List<String[]> rows = reader.readAll();
-
+		
 		return rows;
 	}
 

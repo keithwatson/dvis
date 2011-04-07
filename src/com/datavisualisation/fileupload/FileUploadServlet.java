@@ -2,6 +2,7 @@ package com.datavisualisation.fileupload;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -44,10 +45,10 @@ public class FileUploadServlet extends HttpServlet {
 			String contents = new String(byteArray);
 			inputStream.close();
 
-			CsvParser.parse(contents);
+			List<String[]> data = CsvParser.parse(contents);
 
 			BarChart barChart = new BarChart();
-			script = barChart.generateChartJavascript(null, null);
+			script = barChart.generateChartJavascript(data);
 
 		}
 
