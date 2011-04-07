@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import com.datavisualisation.Server;
 import com.datavisualisation.parsers.CsvParser;
 import com.datavisualisation.protovis.BarChart;
 
@@ -31,9 +30,6 @@ public class FileUploadServlet extends HttpServlet {
 	 *  Now avoids temporary files so that it works multi-platform. */
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		//TODO: This really wants to be in a servlet that runs at initialisation, but will do here for now
-		Server.setServerRoot(this.getServletContext().getRealPath("/"));
 
 		for (Part part : request.getParts()) {
 
