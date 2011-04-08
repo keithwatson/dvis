@@ -35,8 +35,8 @@ public class BarChart {
 			data.add(row[1]);
 		}
 
-		String labelsString = Array.generateJavaScriptArray("labels", labels);
-		String dataString = Array.generateJavaScriptArray("data", data);
+		String labelsString = Array.generateJavaScriptArray("labels", labels, true);
+		String dataString = Array.generateJavaScriptArray("data", data, false);
 
 		VelocityEngine engine = new VelocityEngine();
 		engine.setProperty("file.resource.loader.path", Server.getTemplatesDirectory());
