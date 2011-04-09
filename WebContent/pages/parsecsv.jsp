@@ -1,18 +1,16 @@
 <html>
 <head>
-	<link rel="stylesheet" title="Data Visualisation" type="text/css" href="stylesheets/main.css">
+	<link rel="stylesheet" title="Data Visualisation" type="text/css" href="../stylesheets/main.css">
 </head>
 
 <body>
 	<header>
-		<h1>Data Visualisation</h1>
+		<h1>Parse CSV File</h1>
 	</header>
 
 	<section class="main">
 		<p>Welcome.</p>
-		<p>Please upload your CSV file, in the following format:</p>
-
-		<img class="image" src="images/barchart.png"></img>
+		<p>Please upload your CSV file. Once uploaded, you can select columns you wish to use to chart.</p>
 
 		<form class="fileUploadForm" action="fileUpload" enctype="multipart/form-data" method="post">
 			<input type="file" name="uploadFile" /> <input type="submit" class="white button" value="Upload File"/>
@@ -24,11 +22,6 @@
 	</section>
 
 	<div class="verticalbreak"></div>
-
-	<section class="main">
-		<p><a href="pages/parsecsv.jsp">Select Columns from CSV File...</a></p>
-	</section>
-	
 </body>
 
 </html>
