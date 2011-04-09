@@ -4,7 +4,7 @@ $labels
 /* Sizing and scales. */
 var w = 800,
     h = 500,
-    x = pv.Scale.linear(0, 10).range(0, w),
+    x = pv.Scale.linear(0, $maximumValue + 1).range(0, w),
     y = pv.Scale.ordinal(pv.range(10)).splitBanded(0, h, 4/5);
 
 /* The root panel. */
