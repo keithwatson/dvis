@@ -1,4 +1,5 @@
 $data
+$labels
 
 /* Sizing and scales. */
 var w = 800,
@@ -32,7 +33,7 @@ bar.anchor("right").add(pv.Label)
 bar.anchor("left").add(pv.Label)
     .textMargin(5)
     .textAlign("right")
-    .text(function() "ABCDEFGHIJK".charAt(this.index));
+    .text(function() labels[this.index]);
 
 /* X-axis ticks. */
 vis.add(pv.Rule)
