@@ -10,7 +10,7 @@
 
 	<section class="main">
 		<p>Welcome.</p>
-		<p>Please upload your CSV file, in the following format</p>
+		<p>Please upload your CSV file, in the following format:</p>
 
 		<img class="image" src="images/barchart.png"></img>
 
