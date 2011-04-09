@@ -45,6 +45,9 @@ public class BarChart {
 		VelocityContext context = new VelocityContext();
 		context.put("labels", labelsString);
 		context.put("data", dataString);
+		
+		/* Put the maximum value of the data array in, so as we can scale the chart */
+		context.put("maximumValue", Array.getMaximumIntegerFromStringArray(data));
 
 		Template template = engine.getTemplate("barchart.js");
 		StringWriter writer = new StringWriter();
