@@ -34,7 +34,7 @@ public class Array {
 		List<Integer> list = new ArrayList<Integer>(stringArray.size());
 
 		for (String item : stringArray) {
-			list.add(Integer.parseInt(item));
+			list.add(Integer.parseInt(item.trim()));
 		}
 
 		return list;
