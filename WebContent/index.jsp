@@ -15,9 +15,9 @@
 		<img class="image" src="images/barchart.png"></img>
 
 		<form class="fileUploadForm" action="fileUpload" enctype="multipart/form-data" method="post">
-			<input type="file" name="uploadFile" /> <input type="submit" class="white button" value="Upload File"/>
+			<input type="file" name="uploadFile" />
+			<input type="submit" class="white button" value="Upload File" />
 			
-			<!-- Error Message -->
 			<p class="errorMessage" style="display: none">Please enter a valid filename</p>
 			
 		</form>
