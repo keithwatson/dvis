@@ -1,18 +1,33 @@
+
+var data = [];
+var labels = [];
 $data
 $labels
+
+if(data.length == 0){
+	throw "No data to display";
+}
+
+if(labels.length == 0){
+	throw "No labels to display";
+}
+
+//get the longest label in pixels
+var widestLabel = Visualisation.Utils.visualLength(labels);
+var padding = 5;
 
 /* Sizing and scales. */
 var w = 800,
     h = 500,
     x = pv.Scale.linear(0, $maximumValue + 1).range(0, w),
-    y = pv.Scale.ordinal(pv.range(10)).splitBanded(0, h, 4/5);
+    y = pv.Scale.ordinal(pv.range(data.length)).splitBanded(0, h, 4/5);
 
 /* The root panel. */
 var vis = new pv.Panel()
     .width(w)
     .height(h)
     .bottom(20)
-    .left(20)
+    .left(widestLabel+padding)
     .right(10)
     .top(5);
 

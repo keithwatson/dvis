@@ -34,6 +34,8 @@ public class BarChart {
 			labels.add(row[0]);
 			data.add(row[1]);
 		}
+		
+		
 
 		String labelsString = Array.generateJavaScriptArray("labels", labels, true);
 		String dataString = Array.generateJavaScriptArray("data", data, false);
