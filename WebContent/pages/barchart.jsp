@@ -12,11 +12,9 @@
 <!-- hidden span only used to get string length in pixels -->
 <span id="ruler" style="visibility: hidden; white-space: nowrap; font-size: 10px"></span>
 
-
-
 	<div id="center">
 	<div id="fig">
-		<script type="text/javascript+protovis">${script}</script>
+		<script type="text/javascript">${script}</script>
 	</div>
 	</div>
 </body>

@@ -14,22 +14,51 @@ if(labels.length == 0){
 
 //get the longest label in pixels
 var widestLabel = Visualisation.Utils.visualLength(labels);
-var padding = 5;
+var padding = 30;
+var halfPadding = padding/2;
 
 /* Sizing and scales. */
 var w = 800,
     h = 500,
     x = pv.Scale.linear(0, $maximumValue + 1).range(0, w),
-    y = pv.Scale.ordinal(pv.range(data.length)).splitBanded(0, h, 4/5);
+    y = pv.Scale.ordinal(pv.range(data.length)).splitBanded(0, h, 4/5),
+    c = pv.Colors.category19(data);
+;
 
 /* The root panel. */
 var vis = new pv.Panel()
     .width(w)
     .height(h)
-    .bottom(20)
+    .bottom(40 )
     .left(widestLabel+padding)
     .right(10)
-    .top(5);
+    .top(20);
+
+
+/* Y-axis label */
+vis.add(pv.Label)
+    .data(["Gain / Loss Factor"])
+    .left(-(widestLabel+halfPadding))
+    .bottom(h/2)
+    .font("10pt Arial")
+    .textAlign("center")
+    .textAngle(-Math.PI/2);
+
+/* X-axis label */
+vis.add(pv.Label)
+    .data(["Gain / Loss Factor"])
+    .left(w/2)
+    .bottom(-padding)
+    .font("10pt Arial")
+    .textAlign("center");
+
+/* title label */
+vis.add(pv.Label)
+	.data(["Title"])
+	.left(w/2)
+	.top(-5)
+	.font("12pt Arial")
+	.textAlign("center");
 
 /* The bars. */
 var bar = vis.add(pv.Bar)
@@ -37,7 +66,8 @@ var bar = vis.add(pv.Bar)
     .top(function() y(this.index))
     .height(y.range().band)
     .left(0)
-    .width(x);
+    .width(x)
+    .fillStyle(function(d) c(this.index));
 
 /* The value label. */
 bar.anchor("right").add(pv.Label)
@@ -61,5 +91,6 @@ vis.add(pv.Rule)
     .strokeStyle("#000")
   .anchor("bottom").add(pv.Label)
     .text(x.tickFormat);
+
 
 vis.render();

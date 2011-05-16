@@ -15,6 +15,9 @@
 		<img class="image" src="images/barchart.png"></img>
 
 		<form class="fileUploadForm" action="fileUpload" enctype="multipart/form-data" method="post">
+			<label for="chartTitle">Chart Title</label><input type="text" name="title" id="title"/>
+			<label for="xaxisLabel">x-axis label</label><input type="text" name="xaxisLabel" id="xaxisLabel" />
+			<label for="yaxisLabel">y-axis label</label><input type="text" name="yaxisLabel" id="yaxisLabel" />
 			<input type="file" name="uploadFile" />
 			<input type="submit" class="white button" value="Upload File" />
 			
